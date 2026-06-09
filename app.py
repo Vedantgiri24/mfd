@@ -118,11 +118,6 @@ html, body, [class*="css"], .stApp {
     color: #E2E8F0 !important;
 }
 
-/* Hide menu & footer but keep header visible for sidebar toggle arrow */
-#MainMenu, footer { visibility: hidden; }
-header { visibility: hidden; }
-[data-testid="stSidebarCollapseButton"] { visibility: visible !important; }
-
 .main .block-container {
     padding: 1.5rem 2rem 3rem !important;
     max-width: 1400px !important;
@@ -205,7 +200,6 @@ header { visibility: hidden; }
 }
 
 /* ══ NAV ROW (top of each page) ══ */
-/* Right-side nav buttons: Project Info / Back */
 div[data-testid="stButton"]:has(button[data-testid="topbar_about"]) button,
 div[data-testid="stButton"]:has(button[data-testid="back_to_diag"]) button {
     background: #1E3A5F !important;
@@ -599,7 +593,7 @@ with st.sidebar:
     <div class='sb-logo'>
         <div class='sb-logo-icon'>⚙️</div>
         <div>
-            <div class='sb-logo-text'>Fault Diagnosis AI</div>
+            <div class='sb-logo-text'>Machine Fault Diagnosis</div>
             <div class='sb-logo-sub'>CNN · Deep Learning System</div>
         </div>
     </div>
@@ -647,7 +641,7 @@ with st.sidebar:
     st.markdown("""
     <div class='sb-footer'>
         Final Year Project · 2026–27<br>
-        Machine Fault Detection using CNN<br>
+        Machine Fault Diagnosis Using Deep Learning Approach<br>
         Dept. of Mechanical Engineering
     </div>
     """, unsafe_allow_html=True)
@@ -659,7 +653,7 @@ with st.sidebar:
 if st.session_state.page == "about":
 
     # Nav row: spacer (left) | Back button (right)
-    _spacer, _btn_col = st.columns([8, 2])
+    _spacer, _btn_col = st.columns([12, 2])
     with _btn_col:
         if st.button("← Back to Diagnosis", key="back_to_diag"):
             st.session_state.page = "diagnosis"
@@ -723,15 +717,13 @@ if st.session_state.page == "about":
         <div class='card'>
             <div class='card-header'><span class='card-header-icon'>❗</span> Problem Statement</div>
             <div class='problem-text'>
-                Faults in rotating machinery pose significant risks to operational reliability,
-                safety, and maintenance efficiency. Conventional fault diagnosis techniques rely
-                heavily on manual feature extraction and expert knowledge, limiting their accuracy
-                under complex operating conditions.
-                <br><br>
-                This project addresses the need for an automated and reliable machine fault diagnosis
-                system by employing deep learning techniques for accurate detection and classification
-                of bearing faults, shaft defects, and structural anomalies from raw vibration signals
-                captured at multiple sensor positions.
+                Faults in rotating machinery pose significant risks to operational reliability, safety,
+                and maintenance efficiency. Conventional fault diagnosis techniques rely heavily on manual
+                feature extraction and expert knowledge, limiting their accuracy under complex operating
+                conditions. This project addresses the need for an automated and reliable machine fault 
+                diagnosis system by employing 
+                deep learning techniques for accurate detection and classification of machine faults.
+                <br>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -950,7 +942,7 @@ if st.session_state.page == "about":
 else:
 
     # Nav row: spacer (left) | Project Info button (right)
-    _spacer, _btn_col = st.columns([8, 2])
+    _spacer, _btn_col = st.columns([15, 2])
     with _btn_col:
         if st.button("📘  Project Info", key="topbar_about"):
             st.session_state.page = "about"
